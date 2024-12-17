@@ -1,15 +1,15 @@
 public class Funs {
     private int count;
+    private Meowable cat;
 
-    public Funs() {
+    public Funs(Meowable cat) {
+        this.cat = cat;
         count = 0;
     }
 
-    public void meowsCare(Meowable meowable) {
-        for (int i = 0; i < 5; i++) {
-            meowable.meow();
-            this.count++;
-        }
+    public void meowsCare() {
+        this.cat.meow();
+        this.count++;
     }
 
     public int getCount() {

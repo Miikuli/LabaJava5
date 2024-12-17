@@ -1,7 +1,6 @@
 public class Fraction implements FractionProperties {
     private int numerator;
     private int denominator;
-    private Double cachedValue;
 
     public Fraction(int numerator, int denominator) {
         if (denominator == 0) {
@@ -12,13 +11,19 @@ public class Fraction implements FractionProperties {
         if (denominator < 0) {
             this.numerator = -this.numerator;
         }
-        this.cachedValue = null;
+    }
+
+    public int getDenominator() {
+        return denominator;
+    }
+
+    public int getNumerator() {
+        return numerator;
     }
 
     @Override
     public void setNumerator(int numerator) {
         this.numerator = numerator;
-        cachedValue = null;
     }
 
     @Override
@@ -30,17 +35,8 @@ public class Fraction implements FractionProperties {
         if (denominator < 0) {
             this.numerator = -this.numerator;
         }
-        cachedValue = null;
     }
 
-
-    @Override
-    public double getValue() {
-        if (cachedValue == null) {
-            cachedValue = (double) numerator / denominator;
-        }
-        return cachedValue;
-    }
 
     @Override
     public String toString() {
@@ -52,6 +48,6 @@ public class Fraction implements FractionProperties {
         if (this == obj) return true;
         if (!(obj instanceof Fraction)) return false;
         Fraction other = (Fraction) obj;
-        return this.numerator == other.numerator && other.cachedValue == this.denominator;
+        return this.numerator == other.numerator && other.denominator == this.denominator;
     }
 }

@@ -4,25 +4,31 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         //Дроби
-        FractionProperties fraction_1 = FractionFactory.createFraction(2, 4);
+        Fraction fraction_1 = new Fraction(2, 4);
+        FractionCashe fraction_1_cashe = new FractionCashe(fraction_1);
         System.out.println("Дробь: " + fraction_1);
-        System.out.println("Вещественное значение дроби: " + fraction_1.getValue());
+        System.out.println("Вещественное значение дроби: " + fraction_1_cashe.getValue());
         fraction_1.setNumerator(5);
         System.out.println("Изменили числитель на 5: " + fraction_1);
-        System.out.println("Вещественное значение измененной дроби 1: " + fraction_1.getValue());
+        System.out.println("Вещественное значение измененной дроби 1: " + fraction_1_cashe.getValue());
         System.out.println();
-        FractionProperties fraction_2 = FractionFactory.createFraction(-7, 3);
+        Fraction fraction_2 = new Fraction(-7, 3);
+        FractionCashe fraction_2_cashe = new FractionCashe(fraction_1);
         System.out.println("Дробь 2: " + fraction_2);
-        System.out.println("Вещественное значение дроби: " + fraction_2.getValue());
+        System.out.println("Вещественное значение дроби: " + fraction_2_cashe.getValue());
         fraction_2.setDenominator(-7);
         System.out.println("Изменили знаменатель на -7: " + fraction_2);
-        System.out.println("Вещественное значение измененной дроби: " + fraction_2.getValue());
+        System.out.println("Вещественное значение измененной дроби: " + fraction_2_cashe.getValue());
         System.out.println();
 
         //Количество мяуканий
         Meowable cat_1 = new Cat("Вася");
-        Funs funs = new Funs();
-        funs.meowsCare(cat_1);
+        Funs funs = new Funs(cat_1);
+        funs.meowsCare();
+        funs.meowsCare();
+        funs.meowsCare();
+        funs.meowsCare();
+        funs.meowsCare();
         System.out.println("Количество мяуканий: " + funs.getCount());
         System.out.println();
 
@@ -64,7 +70,7 @@ public class Main {
             }
             System.out.println();
         }
-         catch (Exception e) {
+        catch (Exception e) {
             System.out.println("Произошла ошибка, попробуйте ещё раз");
         }
         System.out.println();
@@ -77,11 +83,11 @@ public class Main {
 
         //Очередь
         Queue<Integer> queue_1 = new LinkedList<>();
-        queue_1.add(1);
-        queue_1.add(1);
-        queue_1.add(1);
-        queue_1.add(4);
-        queue_1.add(1);
+        queue_1.add(2);
+        queue_1.add(2);
+        queue_1.add(3);
+        queue_1.add(2);
+        queue_1.add(2);
         queue_1.add(1);
         System.out.println("Очередь: " + queue_1);
         int i = 0;
